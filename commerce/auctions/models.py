@@ -10,7 +10,7 @@ class User(AbstractUser):
 class Listing(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     item = models.CharField(max_length=64)
-    picture = models.ImageField(upload_to="images/")
+    picture = models.ImageField(blank=True, upload_to="images/")
     date_created = models.DateTimeField(default=datetime.now())
     # Many Listings to One User relationship
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='listings')
